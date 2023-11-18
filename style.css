@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flexbox;
+    justify-content: center;
+    align-items:center;
+    height: 100vh;
+    margin: 0;
+    font-family: ui, sans-serif;
+    color: #222;
+    overflow-x: hidden;
+    background-color: #252525;
+}
+
+legend {
+    justify-items: center;
+}
+
+.container {
+    display: flex;
+
+}
+
+/*Contendor imagen logo*/
+.contenedor {
+    display: flex;
+    text-align: right;
+}
+
+#email {
+    border: none;
+    stroke: #bbb;
+    border-radius: 16px 16px 0px 0px;
+    padding: 8px 16px;
+}
+
+#email:focus {
+    outline: 2px solid #bbb;
+}
+
+#password {
+    border: none;
+    stroke: #bbb;
+    border-radius: 0px 0px 16px 16px;
+    padding: 8px 16px;
+    justify-items:end;
+}
+
+#password:focus {
+    outline: 2px solid #bbb;
+}
+
+.button {
+    padding: 10px 30px;
+    margin: 5px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.izquierda {
+    flex: 1;
+    background-color: #e8e8e8;
+    border-radius: 24px;
+    margin: 5px;
+    padding: 20px;
+}
+
+.derecha {
+    background-color: #e8e8e8;
+    border-radius: 24px;
+    margin: 5px;
+    padding: 20px;
+}
+
+.logo {
+    display: block;
+    margin: auto;
+    border-radius: 16px;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #e8e8e8;
+    margin: 5px;
+    border-radius: 24px;
+}
+
+.footer-content { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-content img {
+   margin-right: 10px;
+   max-width: 30px;
+   max-height: 30px;
+}
+
+.footer-content a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/*Boton v1 de página inicio*/
+.boton-menu {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.boton-menu img {
+    width: 50px;
+    height: 50px;
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    background-color: #e8e8e8;
+    min-width: 160px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.menu a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: #333;
+}
+
+.menu a:hover {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Botones v2 de página inicio lista */
+ul.lista-botones {
+    list-style: none;
+    padding: 0;
+}
+
+li.button {
+    margin: 5px 0;
+}

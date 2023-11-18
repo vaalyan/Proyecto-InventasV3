@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>INVENTAS</title>
+
+        <meta name="descripción" content="Sistema de Gestión de Inventarios">
+        <link rel="icon" type="image/png" href="/imágenes/inventas.png">
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="/js.js"></script>
+        
+        <style>
+            
+        </style>
+
+    </head>
+    <body>
+        <main>
+            <div class="contenedor">
+                <div class="derecha">
+                    <h1>Inventas - Sistema de Gestión de Inventarios</h1>
+                    <form method="post" action="/ind-is.html" onsubmit="iniciarSesion(event)">
+                        <h2>Inicio de Sesión</h2>
+                        <fieldset>
+                            <legend>Ingresa tu Email</legend>
+
+                            <label style="display: block;">Email:
+                                <input type="email" name="email" id="email" placeholder="Email" required>
+                            </label>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Ingresa tu Contraseña</legend>
+
+                            <label style="display: block;">Contraseña:
+                                <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                            </label>
+                        </fieldset>
+                        
+                        <input id="button" type="submit" class="button" value="Iniciar Sesión">
+
+                    </form>
+                    
+                </div>
+           
+
+                <div class="izquierda">
+                    <img class="logo" width="500px" height="500px" title="Logo Inventas" src="/imágenes/inventas.png">
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <img src="/imágenes/correo-de-contacto.png"> 
+                Contáctanos
+                <a href="mailto:dan9849r@gmail.com">Envíame un Correo</a>
+                <a href="tel:+573215684033">Lámame</a>
+                <a href="whatsapp://send?text=">Envíame un Whatsapp</a>
+            </div>
+        </footer>
+       
+    </body>
+</html>
