@@ -5,19 +5,24 @@
 }
 
 body {
-    display: flexbox;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items:center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
-    font-family: ui, sans-serif;
+    font-family: Lato, sans-serif;
     color: #222;
     overflow-x: hidden;
     background-color: #252525;
 }
 
+main {
+    flex: 1;
+}
+
 legend {
-    justify-items: center;
+    text-align: center;
 }
 
 .container {
@@ -28,12 +33,12 @@ legend {
 /*Contendor imagen logo*/
 .contenedor {
     display: flex;
-    text-align: right;
+    flex-direction: row;
 }
 
 #email {
     border: none;
-    stroke: #bbb;
+    color: #bbb;
     border-radius: 16px 16px 0px 0px;
     padding: 8px 16px;
 }
@@ -44,10 +49,10 @@ legend {
 
 #password {
     border: none;
-    stroke: #bbb;
+    color: #bbb;
     border-radius: 0px 0px 16px 16px;
     padding: 8px 16px;
-    justify-items:end;
+    text-align: end;
 }
 
 #password:focus {
@@ -73,6 +78,7 @@ legend {
 }
 
 .derecha {
+    flex: 1;
     background-color: #e8e8e8;
     border-radius: 24px;
     margin: 5px;
@@ -91,6 +97,9 @@ legend {
     background-color: #e8e8e8;
     margin: 5px;
     border-radius: 24px;
+    position: relative;
+    bottom: 0;
+    width: 100%
 }
 
 .footer-content { 
