@@ -21,3 +21,35 @@ function iniciarSesion(event) {
         alert("Credenciales incorrectas. Inténtalo de nuevo.")
     }
 }
+
+function irAInicio() {
+    window.location.href = 'ind-is.html';
+}
+
+function irAInventario() {
+    window.location.href = 'ind-inventario.html';
+}
+
+function irAVentasPOS() {
+    window.location.href = 'ind-ventasPOS.html';
+}
+
+function irAClientes() {
+    window.location.href = 'ind-clientes.html';
+}
+
+function irAProveedores() {
+    window.location.href = 'ind-proveedores.html';
+}
+
+function irACuadreCaja() {
+    window.location.href = 'ind-cuadreCaja.html';
+}
+
+function irAConfiguración() {
+    window.location.href = 'ind-config.html';
+}
+
+function cerrarSesion() {
+    window.location.href = 'index.html';
+}
