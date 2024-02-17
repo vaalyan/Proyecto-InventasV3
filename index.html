@@ -20,19 +20,20 @@
                     <h1>Inventas - Sistema de Gestión de Inventarios</h1>
                     <form method="post" action="/ind-is.html" onsubmit="iniciarSesion(event)">
                         <h2>Inicio de Sesión</h2>
+                        
                         <fieldset>
                             <legend>Ingresa tu Email</legend>
 
-                            <label style="display: block;">Email:
-                                <input type="email" name="email" id="email" placeholder="Email" required>
+                            <label class="campo-label" style="display: block;">
+                                <input type="email" name="email" id="email" autocomplete="email" class="campo-input" placeholder="Email" required>
                             </label>
                         </fieldset>
 
                         <fieldset>
                             <legend>Ingresa tu Contraseña</legend>
 
-                            <label style="display: block;">Contraseña:
-                                <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                            <label class="campo-label" style="display: block;">
+                                <input type="password" name="password" id="password" autocomplete="current-password" class="campo-input" placeholder="Contraseña" required>
                             </label>
                         </fieldset>
                         

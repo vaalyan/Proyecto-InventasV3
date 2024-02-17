@@ -58,6 +58,19 @@ legend {
     outline: 2px solid #bbb;
 }
 
+.campo-label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.campo-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 .button {
     padding: 10px 30px;
     margin: 5px;
