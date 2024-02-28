@@ -25,12 +25,7 @@ legend {
     text-align: center;
 }
 
-.container {
-    display: flex;
-
-}
-
-/*Contendor imagen logo*/
+/*Contendor para los divs*/
 .contenedor {
     display: flex;
     flex-direction: row;
