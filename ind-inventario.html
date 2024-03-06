@@ -15,7 +15,7 @@
 <body>
     <main>
         <div class="contenedor">
-            <div class="derecha">
+            <div class="izquierda">
                 <ul class="lista-botones">
                     <li><button onclick="irAInicio()" class="button">Inicio</button></li>
                     <li><button onclick="irAInventario()" class="button">Inventario</button></li>
@@ -28,8 +28,47 @@
                 </ul>
             </div>
             
-            <div class="izquierda">
+            <div class="derecha">
+                <h1>Inventario</h1>
+                <label>
+                    <button>Buscar 
+                        <img src="/imágenes/buscar.png" width="15" height="15">
+                    </button>
+                    <button>Agregar
+                        <img src="/imágenes/boton-agregar.png" width="15" height="15">
+                    </button>
+                    <button>Editar
+                        <img src="/imágenes/editar.png" width="15" height="15">
+                    </button>
+                    <button>Eliminar
+                        <img src="/imágenes/marca-x.png" width="15" height="15">
+                    </button>
+                </label>
 
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Artículo</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="col">1</th>
+                            <td scope="col">Producto Ejemplo 1</td>
+                            <td scope="col">4</td>
+                            <td scope="col">$ 4.500</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">2</th>
+                            <td scope="col">Producto Ejemplo 2</td>
+                            <td scope="col">7</td>
+                            <td scope="col">$ 48.500</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
     </main>
