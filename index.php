@@ -1,3 +1,13 @@
+<?php 
+    session_start();
+
+    if(isset($_SESSION['usuario'])){
+        header("location: php/bienvenida.php");
+    }
+
+    session_destroy();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,34 +24,30 @@
 
 
         <link rel="stylesheet" type="text/css" href="assets/CSS/style.css">
-        <script src="assets/JS/script.js"></script>
-        
 
     </head>
     <body>
         <main>
-            <h1>Inventas - Sistema de Gestión de Inventarios</h1>
             <div class="contenedor__todo">
-                <div class="caja__trasera"> 
+                <div class="caja__trasera">
                     <div class="caja__trasera-login">
                         <h3>¿Ya tienes una cuenta?</h3>
-                        <p>Iniciar sesión para entrar en la página</p>
-                        <button id="btn_iniciar-sesion">Iniciar Sesión</button>
+                        <p>Inicia sesión para entrar en la página</p>
+                        <button id="btn__iniciar-sesion">Iniciar Sesión</button>
                     </div>
-                
                     <div class="caja__trasera-register">
                         <h3>¿Aún no tienes una cuenta?</h3>
                         <p>Regístrate para iniciar sesión</p>
-                        <button class="btn_registrarse">Registrarse</button>
+                        <button id="btn__registrarse">Registrarse</button>
                     </div>
                 </div>
-                 <!--Formulario inicio y registro-->
+                <!--Formulario Inicio y Registro-->
                 <div class="contenedor__login-register">
-                     <!--Inicio-->
+                    <!--Inicio-->
                     <form action="PHP/login_usuario_be.php" method="POST" class="formulario__login">
                         <h2>Iniciar Sesión</h2>
                         <input type="text" placeholder="Correo Electrónico" name="correo">
-                        <input type="password" placehorlder="Contraseña" name="contrasena">
+                        <input type="password" placeholder="Contraseña" name="contrasena">
                         <button>Entrar</button>
                     </form>
                     <!--Registro-->
@@ -53,19 +59,20 @@
                         <input type="password" placeholder="Contraseña" name="contrasena">
                         <button>Registrarse</button>
                     </form>
-                </div>           
+                </div>
             </div>
         </main>
-
-        <footer class="footer">
-            <div class="footer-content">
-                <img src="/imágenes/correo-de-contacto.png"> 
-                Contáctanos
-                <a href="mailto:dan9849r@gmail.com">Envíame un Correo</a>
-                <a href="tel:+573215684033">Lámame</a>
-                <a href="whatsapp://send?text=">Envíame un Whatsapp</a>
-            </div>
-        </footer>
-       
+            <!--
+                <footer class="footer">
+                    <div class="footer-content">
+                        <img src="/imágenes/correo-de-contacto.png"> 
+                        Contáctanos
+                        <a href="mailto:dan9849r@gmail.com">Envíame un Correo</a>
+                        <a href="tel:+573215684033">Lámame</a>
+                        <a href="whatsapp://send?text=">Envíame un Whatsapp</a>
+                    </div>
+                </footer>
+            -->
+        <script src="assets/JS/script.js"></script>
     </body>
 </html>

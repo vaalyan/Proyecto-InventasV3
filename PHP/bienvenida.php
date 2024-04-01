@@ -1,3 +1,18 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['usuario'])){ //proteccion sessión
+        echo '
+            <script>
+                alert("Por favor, iniciar sesión");
+                window.location = "../index.php";
+            </script>
+        ';
+        session_destroy();
+        die();
+    }
+    //session_destroy(); cerrar sesión automáticamente
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,6 +41,9 @@
                         <li><button onclick="irAConfiguración()" class="button">Configuración</button></li>
                         <li><button onclick="cerrarSesion()" class="button">Cerrar Sesión</button></li>
                     </ul>
+                    
+                    <a href="cerrar_sesion.php">Cerrar Sesión</a>
+                        
                 </div>
                 
                 <div class="derecha">

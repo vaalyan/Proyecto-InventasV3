@@ -31,12 +31,12 @@ main {
 }
 
 .caja__trasera {
-    width: 100px;
+    width: 100%;
     padding: 10px 20px;
     display: flex;
     justify-content: center;
     backdrop-filter: blur(5px);
-    background-color: rgba(0, 128, 255, 0.5);
+    background-color: rgba (0, 128, 255, 0.5);
 }
 
 .caja__trasera div {
@@ -63,7 +63,7 @@ main {
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    color: whitesmoke;
+    color: white;
     outline: none;
     transition: all 300ms;
 }
@@ -82,13 +82,14 @@ main {
     position: relative;
     top: -185px;
     left: 10px;
+
     transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
 }
 
 .contenedor__login-register form {
     width: 100%;
     padding: 80px 20px;
-    background: #29849f;
+    background: rgb(56, 172, 197);
     position: absolute;
     border-radius: 20px;
 }
@@ -104,11 +105,11 @@ main {
     width: 100%;
     margin-top: 20px;
     padding: 10px;
-    border: none;
+    border:  none;
+    border-radius: 8px;
     background: #f2f2f2;
     font-size: 16px;
     outline: none;
-    border-radius: 8px;
 }
 
 .contenedor__login-register form button {
@@ -117,16 +118,15 @@ main {
     border: 2px solid #fff;
     border-radius: 8px;
     font-size: 14px;
-    font-weight: 600;
     background: #252525;
     color: #fff;
     cursor: pointer;
     outline: none;
-    transition: all 300ms;
 }
 
 .contenedor__login-register form button:hover {
-    background: #fff;
+    transition: all 300ms;
+    background-color:whitesmoke;
     color: #b90808;
 }
 
@@ -139,7 +139,39 @@ main {
     display: none;
 }
 
-/*Estilos Footer*/
+/*para la responsividad de la página*/
+@media screen and (max-width: 850px) {
+
+    main {
+        margin-top: 50px;
+    }
+
+    .caja__trasera {
+        max-width: 350px;
+        height: 300px;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .caja__trasera div {
+        margin: 0px;
+        position: absolute;
+    }
+
+    /*Formulario*/
+
+    .contenedor__login-register {
+        top: -10px;
+        left: -5px;
+        margin: auto;
+    }
+
+    .contenedor__login-register form {
+        position: relative;
+    }
+}
+
+/*Estilos Footer editar*/
 .footer {
     text-align: center;
     padding: 10px;
@@ -213,33 +245,4 @@ ul.lista-botones {
 
 li.button {
     margin: 5px 0;
-}
-
-@media screen and (max-width: 850px) {
-    
-    main {
-        margin-top: 50px;
-    }    
-
-    .caja__trasera {
-        max-width: 350px;
-        height: 300px;
-        flex-direction: column;
-        margin: auto;
-    }
-
-    .caja__trasera div {
-        margin: 0px;
-        position: absolute;
-    }
-
-    /*Formulario*/
-    .contenedor__login-register {
-        top: -10px;
-        left: -5px;
-        margin: auto;
-    }
-    .contenedor__login-register form {
-        position: relative;
-    }
 }
