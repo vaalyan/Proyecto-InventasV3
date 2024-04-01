@@ -2,7 +2,7 @@
     include 'conexion_be.php';
 
     // consulta sql para obtener los productos
-    $sql = "SELECT * FROM productos";
+    $sql = "SELECT * FROM inventario";
     $resultado = $conexion->query($sql);
 
     //comprobar si hay resultados
