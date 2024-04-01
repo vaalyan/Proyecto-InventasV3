@@ -1,41 +1,95 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items:center;
-    min-height: 100vh;
-    margin: 0;
-    font-family: Lato, sans-serif;
-    color: #222;
-    overflow-x: hidden;
-    background-color: #252525;
+    background-image: url(/imag/inventas.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 main {
-    flex: 1;
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 100px;
 }
 
-legend {
-    text-align: center;
+.contenedor__todo {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
 }
 
-/*Contendor para los divs*/
-.contenedor {
+.caja__trasera {
+    width: 100px;
+    padding: 10px 20px;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 128, 255, 0.5);
+}
+
+.caja__trasera div {
+    margin: 100px 40px;
+    color: black;
+    transition: all 500ms;
+}
+
+.caja__trasera div p,
+.caja__trasera div button {
+    margin-top: 30px;
+}
+
+.caja__trasera div h3 {
+    font-weight: 400;
+    font-size: 26px;
+}
+
+.caja__trasera button {
+    padding: 10px 40px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: whitesmoke;
+    outline: none;
+    transition: all 300ms;
+}
+
+.caja__trasera button:hover {
+    background: #fff;
+    color: #b90808;
+}
+
+/*Formularios*/
+.contenedor__login-register {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    top: -185px;
+    left: 10px;
+    transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
 }
 
 .contenedor__login-register form {
     width: 100%;
-    padding: 88px 20px;
+    padding: 80px 20px;
     background: #29849f;
-    position: relative;
+    position: absolute;
     border-radius: 20px;
 }
 
@@ -60,12 +114,20 @@ legend {
 .contenedor__login-register form button {
     padding: 10px 40px;
     margin-top: 40px;
-    border: none;
+    border: 2px solid #fff;
+    border-radius: 8px;
     font-size: 14px;
+    font-weight: 600;
     background: #252525;
     color: #fff;
     cursor: pointer;
     outline: none;
+    transition: all 300ms;
+}
+
+.contenedor__login-register form button:hover {
+    background: #fff;
+    color: #b90808;
 }
 
 .formulario__login {
@@ -74,50 +136,10 @@ legend {
 }
 
 .formulario__register {
-    display: block;
+    display: none;
 }
 
-/*
-button {
-    margin: 10px;
-    padding: 10px 40px;
-    border: 2px solid #fff;
-    background-color:#333;
-    color: #fff;
-    border-radius: 10px;
-    cursor: pointer;
-    outline: none;
-    transition: all 300ms;
-}
-*/
-
-.contenedor__login-register form button:hover {
-    background: #fff;
-    color: #b90808;
-}
-
-.izquierda {
-    flex: 1;
-    background-color: #e8e8e8;
-    border-radius: 24px;
-    margin: 5px;
-    padding: 20px;
-}
-
-.derecha {
-    flex: 1;
-    background-color: #e8e8e8;
-    border-radius: 24px;
-    margin: 5px;
-    padding: 20px;
-}
-
-.logo {
-    display: block;
-    margin: auto;
-    border-radius: 16px;
-}
-
+/*Estilos Footer*/
 .footer {
     text-align: center;
     padding: 10px;
@@ -191,4 +213,33 @@ ul.lista-botones {
 
 li.button {
     margin: 5px 0;
+}
+
+@media screen and (max-width: 850px) {
+    
+    main {
+        margin-top: 50px;
+    }    
+
+    .caja__trasera {
+        max-width: 350px;
+        height: 300px;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .caja__trasera div {
+        margin: 0px;
+        position: absolute;
+    }
+
+    /*Formulario*/
+    .contenedor__login-register {
+        top: -10px;
+        left: -5px;
+        margin: auto;
+    }
+    .contenedor__login-register form {
+        position: relative;
+    }
 }
