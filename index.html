@@ -3,13 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>INVENTAS</title>
+        <title>Bienvenido a INVENTAS - Iniciar Sesión</title>
 
         <meta name="descripción" content="Sistema de Gestión de Inventarios">
         <link rel="icon" type="image/png" href="/imágenes/inventas.png">
         
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="/js.js"></script>
+        <link rel="stylesheet" type="text/css" href="assets/CSS/style.css">
+        <script src="assets/JS/script.js"></script>
         
 
     </head>
@@ -18,31 +18,26 @@
             <div class="contenedor">
                 <div class="izquierda">
                     <h1>Inventas - Sistema de Gestión de Inventarios</h1>
-                    <form method="post" action="/ind-is.html" onsubmit="iniciarSesion(event)">
-                        <h2>Inicio de Sesión</h2>
-                        
-                        <fieldset>
-                            <legend>Ingresa tu Email</legend>
-
-                            <label class="campo-label" style="display: block;">
-                                <input type="email" name="email" id="email" autocomplete="email" class="campo-input" placeholder="Email" required>
-                            </label>
-                        </fieldset>
-
-                        <fieldset>
-                            <legend>Ingresa tu Contraseña</legend>
-
-                            <label class="campo-label" style="display: block;">
-                                <input type="password" name="password" id="password" autocomplete="current-password" class="campo-input" placeholder="Contraseña" required>
-                            </label>
-                        </fieldset>
-                        
-                        <input id="button" type="submit" class="button" value="Iniciar Sesión">
-
-                    </form>
-                    
+                    <!--Formulario inicio y registro-->
+                    <div class="contenedor__login-register">
+                        <!--Inicio-->
+                        <form action="PHP/login_usuario_be.php" method="POST" class="formulario__login">
+                            <h2>Iniciar Sesión</h2>
+                            <input type="text" placeholder="Correo Electrónico" name="correo">
+                            <input type="password" placehorlder="Contraseña" name="contrasena">
+                            <button>Entrar</button>
+                        </form>
+                        <!--Registro-->
+                        <form action="PHP/registrar_usuario_be.php" method="POST" class="formulario__register">
+                            <h2>Registrarse</h2>
+                            <input type="text" placeholder="Nombre Completo" name="nombre_completo">
+                            <input type="text" placeholder="Correo Electrónico" name="correo">
+                            <input type="text" placeholder="Usuario" name="usuario">
+                            <input type="password" placeholder="Contraseña" name="contrasena">
+                            <button>Registrarse</button>
+                        </form>
+                    </div>           
                 </div>
-           
 
                 <div class="derecha">
                     <img class="logo" width="500px" height="500px" title="Logo Inventas" src="/imágenes/inventas.png">

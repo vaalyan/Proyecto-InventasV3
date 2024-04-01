@@ -23,31 +23,31 @@ function iniciarSesion(event) {
 }
 
 function irAInicio() {
-    window.location.href = 'ind-is.html';
+    window.location.href = 'bienvenida.html';
 }
 
 function irAInventario() {
-    window.location.href = 'ind-inventario.html';
+    window.location.href = 'inventario.html';
 }
 
 function irAVentasPOS() {
-    window.location.href = 'ind-ventasPOS.html';
+    window.location.href = 'ventas_pos.html';
 }
 
 function irAClientes() {
-    window.location.href = 'ind-clientes.html';
+    window.location.href = 'clientes.html';
 }
 
 function irAProveedores() {
-    window.location.href = 'ind-proveedores.html';
+    window.location.href = 'proveedores.html';
 }
 
 function irACuadreCaja() {
-    window.location.href = 'ind-cuadreCaja.html';
+    window.location.href = 'cuadre_caja.html';
 }
 
 function irAConfiguración() {
-    window.location.href = 'ind-config.html';
+    window.location.href = 'configuracion.html';
 }
 
 function cerrarSesion() {

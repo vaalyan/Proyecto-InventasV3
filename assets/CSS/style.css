@@ -31,49 +31,69 @@ legend {
     flex-direction: row;
 }
 
-#email {
-    border: none;
-    color: #bbb;
-    border-radius: 16px 16px 0px 0px;
-    padding: 8px 16px;
-}
-
-#email:focus {
-    outline: 2px solid #bbb;
-}
-
-#password {
-    border: none;
-    color: #bbb;
-    border-radius: 0px 0px 16px 16px;
-    padding: 8px 16px;
-}
-
-#password:focus {
-    outline: 2px solid #bbb;
-}
-
-.campo-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.campo-input {
+.contenedor__login-register form {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    padding: 88px 20px;
+    background: #29849f;
+    position: relative;
+    border-radius: 20px;
 }
 
-.button {
-    padding: 10px 30px;
-    margin: 5px;
-    background-color: #333;
-    color: #fff;
+.contenedor__login-register form h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #252525;
+}
+
+.contenedor__login-register form input {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
     border: none;
+    background: #f2f2f2;
+    font-size: 16px;
+    outline: none;
+    border-radius: 8px;
+}
+
+.contenedor__login-register form button {
+    padding: 10px 40px;
+    margin-top: 40px;
+    border: none;
+    font-size: 14px;
+    background: #252525;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+.formulario__login {
+    opacity: 1;
+    display: block;
+}
+
+.formulario__register {
+    display: block;
+}
+
+/*
+button {
+    margin: 10px;
+    padding: 10px 40px;
+    border: 2px solid #fff;
+    background-color:#333;
+    color: #fff;
     border-radius: 10px;
     cursor: pointer;
+    outline: none;
+    transition: all 300ms;
+}
+*/
+
+.contenedor__login-register form button:hover {
+    background: #fff;
+    color: #b90808;
 }
 
 .izquierda {
