@@ -8,7 +8,7 @@ $result = mysqli_query($conexion, $query);
 
 //Verificar método de solicitud
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    //Consulta usaurios
+    //Consulta usuarios
     $query = "SELECT * FROM usuarios";
     $result = mysqli_query($conexion, $query);
 
@@ -57,12 +57,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         if ($result_insert) {
             //Éxito al agregar usuario
             $mensaje = array('mensaje' => 'Usuario agregado correctamente');
-            header('Content-Type: application(json');
+            header('Content-Type: application/json');
             echo json_encode($mensaje);
         } else {
             //Error al agregar usuario
             $error = array('error' => 'Error al agregar usuario');
-            header('Content-Type: application(json');
+            header('Content-Type: application/json');
             echo json_encode($error);
         }
     } else {

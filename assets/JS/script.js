@@ -40,7 +40,7 @@ function irAVentasPOS() {
 }
 
 function irAClientes() {
-    window.location.href = '../clientes.html';
+    window.location.href = 'clientes.php';
 }
 
 function irAProveedores() {
