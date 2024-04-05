@@ -23,19 +23,26 @@
 
             //Verificar si la actualización se realizó correctamente
             if($result) {
-                echo json_encode(array("mensaje" => "Cliente actualizado correctamente"));
+                $respuesta = array('mensaje' => 'Cliente actualizado correctamente');
+                header('Content-Type: application/json');
+                echo json_encode($respuesta);
             } else {
-                echo json_encode(array("error" => "Error al actualizar el cliente"));
+                $respuesta = array('error' => 'Error al actualizar el cliente');
+                echo json_encode($respuesta);
             }
 
             //Cerrar la sentencia preparada
             mysqli_stmt_close($stmt);
         } else {
             //Para datos incompletos en solicitud
-            echo json_encode(array("error" => "Datos incompletos para la actualización"));
+            $respuesta = array('error' => 'Datos incompletos para la actualización');
+            header('Content-Type: application/json');
+            echo json_encode($respuesta);
         }
     } else { 
         //Método de solicitud incorrecto
-        echo json_encode(array("error" => "Método de solicitud incorrecto"));
+        $respuesta = array('error' => 'Método de solicitud incorrecto');
+        header('Content-Type: application/json');
+        echo json_encode($respuesta);
     }
 ?>
