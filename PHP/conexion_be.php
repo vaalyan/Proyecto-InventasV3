@@ -1,5 +1,5 @@
 <?php
-    $conexion = mysqli_connect("localhost", "root", "daniel2024", "login_register_db", 33066);
+    $conexion = mysqli_connect("localhost", "root", "daniel2024", "inventas_db", 33066);
 
     /*
     if($conexion) {
