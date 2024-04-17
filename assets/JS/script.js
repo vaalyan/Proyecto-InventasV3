@@ -26,7 +26,7 @@ function iniciarSesion(event) {
 }
 */
 
-/*
+
 function irAInicio() {
     window.location.href = 'bienvenida.php';
 }
@@ -56,9 +56,9 @@ function irAConfiguración() {
 }
 
 function cerrarSesion() {
-    window.location.href = 'cerrar_sesion.php';
+    window.location.href = '../cerrar_sesion.php';
 }
-*/
+
 
 //Para la interactividad de los formularios de inicio-registro
 document.getElementById("btn__iniciar-sesion").addEventListener("click", iniciarSesion);
