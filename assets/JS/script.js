@@ -28,7 +28,7 @@ function iniciarSesion(event) {
 
 
 function irAInicio() {
-    window.location.href = 'bienvenida.php';
+    window.location.href = './PHP/bienvenida.php';
 }
 
 function irAInventario() {
