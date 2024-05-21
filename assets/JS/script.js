@@ -56,7 +56,7 @@ function irAConfiguración() {
 }
 
 function cerrarSesion() {
-    window.location.href = 'cerrar_sesion.php';
+    window.location.href = '../cerrar_sesion.php';
 }
 
 
