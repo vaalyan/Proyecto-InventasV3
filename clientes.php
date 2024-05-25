@@ -43,6 +43,24 @@
 
             <h2>Clientes</h2>
 
+            <br>
+
+            <!--Formulario para agregar nuevos clientes-->
+            <h2>Agregar nuevos clientes</h2>
+            
+            <br>
+
+            <form action="PHP/agregar_clientes_be.php" method="POST">
+                    Cédula<input type="text" name="cedula"><br>
+                    Nombre<input type="text" name="nombre_completo"><br>
+                    Email<input type="text" name="email"><br>
+                    <input type="submit" value="Agregar Cliente">
+            </form>
+
+            <br>
+
+            <h2>Clientes registrados</h2>
+
             <!--Tabla para mostrar los clientes existentes-->
             <table border="1">
                 <tr>
@@ -50,6 +68,7 @@
                     <th>Cédula</th>
                     <th>Nombre</th>
                     <th>Email</th>
+                    <th>Opciones</th>
                 </tr>
 
                 <?php
@@ -63,7 +82,16 @@
                     //Mostrar los clientes en la tabla
                     if ($result->num_rows > 0) {
                         while  ($row = $result->fetch_assoc()) {
-                            echo "<tr><td>" . $row["id"] . "</td><td>" . $row["cedula"] . "</td><td>" . $row["nombre_completo"] . "</td><td>" . $row["email"] . "</td></tr>";     
+                            echo "<tr>
+                                        <td>" . $row["id"] . "</td>
+                                        <td>" . $row["cedula"] . "</td>
+                                        <td>" . $row["nombre_completo"] . "</td>
+                                        <td>" . $row["email"] . "</td>
+                                        <td>
+                                            <button onclick=\"window.location.href='act_cliente_be.php?id=" . $row["id"] . "'\">Editar</button>
+                                            <button onclick=\"window.location.href='eliminar_cliente_be.php?id=" . $row["id"] . "'\">Eliminar</button>
+                                        </td>
+                                    </tr>";
                         }
                     } else {
                         echo "<tr><td colspan='4'>No hay clientes</td></tr>";
@@ -74,17 +102,6 @@
 
             </table>
 
-            <br>
-
-            <!--Formulario para agregar nuevos clientes-->
-            <h2>Agregar nuevos clientes</h2>
-            
-            <form action="PHP/agregar_clientes_be.php" method="POST">
-                    Cédula<input type="text" name="cedula"><br>
-                    Nombre<input type="text" name="nombre_completo"><br>
-                    Email<input type="text" name="email"><br>
-                    <input type="submit" value="Agregar Cliente">
-            </form>
     </main>
 
     <footer class="footer">
