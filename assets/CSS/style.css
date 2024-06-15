@@ -23,6 +23,10 @@ main {
     margin-top: 100px;
 }
 
+.logo {
+    border-radius: 15px;
+}
+
 .contenedor__todo {
     width: 100%;
     max-width: 800px;

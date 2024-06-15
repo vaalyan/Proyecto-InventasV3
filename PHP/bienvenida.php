@@ -21,10 +21,10 @@
         <title>INVENTAS</title>
 
         <meta name="descripción" content="Sistema de Gestión de Inventarios">
-        <link rel="icon" type="image/png" href="/imágenes/inventas.png">
+        <link rel="icon" type="image/png" href="/imag/inventas.png">
         
-        <link rel="stylesheet" type="text/css" href="/assets/CSS/style.css">
-        <script src="assets///JS/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="../assets/CSS/style.css">
+        <script src="../assets/JS/script.js"></script>
 
     </head>
     <body>
@@ -38,14 +38,13 @@
                         <button onclick="irAProveedores()" class="button">Proveedores</button>
                         <button onclick="irACuadreCaja()" class="button">Cuadre de Caja</button>
                         <button onclick="irAConfiguración()" class="button">Configuración</button>
-                        <button onclick="cerrarSesion()" class="button">Cerrar Sesión</button>
-                    
-                    <a href="cerrar_sesion.php">Cerrar Sesión</a>
-                        
+                        <button onclick="cerrarSesion()" class="button">Cerrar Sesión</button>                        
                 </div>
                 
+                <br>
+
                 <div class="derecha">
-                    <img class="logo" width="500px" height="500px" title="Logo Inventas" src="/imágenes/inventas.png">
+                    <img class="logo" width="500px" height="500px" title="Logo Inventas" src="/imag/inventas.png">
                 </div>
             </div>
 
@@ -53,7 +52,7 @@
 
         <footer class="footer">
             <div class="footer-content">
-                <img src="/imágenes/correo-de-contacto.png"> 
+                <img src="/imag/correo-de-contacto.png"> 
                 Contáctanos
                 <a href="mailto:dan9849r@gmail.com">Envíame un Correo</a>
                 <a href="tel:+573215684033">Lámame</a>

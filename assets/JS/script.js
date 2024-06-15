@@ -28,35 +28,35 @@ function iniciarSesion(event) {
 
 
 function irAInicio() {
-    window.location.href = './PHP/bienvenida.php';
+    window.location.href = '/PHP/bienvenida.php';
 }
 
 function irAInventario() {
-    window.location.href = 'inventario.html';
+    window.location.href = '/inventario.html';
 }
 
 function irAVentasPOS() {
-    window.location.href = 'ventas_pos.html';
+    window.location.href = '/ventas_pos.html';
 }
 
 function irAClientes() {
-    window.location.href = 'clientes.php';
+    window.location.href = '/clientes.php';
 }
 
 function irAProveedores() {
-    window.location.href = 'proveedores.html';
+    window.location.href = '/proveedores.html';
 }
 
 function irACuadreCaja() {
-    window.location.href = 'cuadre_caja.html';
+    window.location.href = '/cuadre_caja.html';
 }
 
 function irAConfiguración() {
-    window.location.href = 'configuracion.html';
+    window.location.href = '/configuracion.html';
 }
 
 function cerrarSesion() {
-    window.location.href = '../cerrar_sesion.php';
+    window.location.href = '../PHP/cerrar_sesion.php';
 }
 
 

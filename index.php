@@ -16,7 +16,7 @@
         <title>Bienvenido a INVENTAS - Iniciar Sesión</title>
 
         <meta name="descripción" content="Sistema de Gestión de Inventarios">
-        <link rel="icon" type="image/png" href="/imágenes/inventas.png">
+        <link rel="icon" type="image/png" href="/imag/inventas.png">
         
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
