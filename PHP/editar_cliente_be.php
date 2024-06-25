@@ -59,8 +59,9 @@ if (isset($_GET['id'])) {
                         Cédula: <input type="text" name="cedula" value="<?php echo htmlspecialchars($row['cedula']); ?>"><br>
                         Nombre: <input type="text" name="nombre_completo" value="<?php echo htmlspecialchars($row['nombre_completo']); ?>"><br>
                         Email: <input type="text" name="email" value="<?php echo htmlspecialchars($row['email']); ?>"><br>
-                        <input type="submit" value="Actualizar Cliente">
+                        <input type="submit" value="Guardar Cambios">
                     </form>
+                    <button onclick="window.location.href='../clientes.php'">Cancelar</button>
 
         </div>
     </main>
