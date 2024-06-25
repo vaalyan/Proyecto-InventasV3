@@ -35,8 +35,8 @@ function irAInventario() {
     window.location.href = '/inventario.html';
 }
 
-function irAVentasPOS() {
-    window.location.href = '/ventas_pos.html';
+function irACarritoVentas() {
+    window.location.href = '/carrito_ventas.html';
 }
 
 function irAClientes() {

@@ -43,7 +43,7 @@ if (isset($_GET['id'])) {
                     <div class="izquierda">
                         <button onclick="irAInicio()" class="button">Inicio</button>
                         <button onclick="irAInventario()" class="button">Inventario</button>
-                        <button onclick="irAVentasPOS()" class="button">Venta P.O.S</button>
+                        <button onclick="irACarritoVentas()" class="button">Carrito de Ventas</button>
                         <button onclick="irAClientes()" class="button">Clientes</button>
                         <button onclick="irAProveedores()" class="button">Proveedores</button>
                         <button onclick="irACuadreCaja()" class="button">Cuadre de Caja</button>
