@@ -18,7 +18,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clientes - INVENTAS</title>
+    <title>Proveedores - INVENTAS</title>
 
     <meta name="description" content="Sistema de Gestión de Inventarios">
     <link rel="icon" type="image/png" href="/imag/inventas.png">
@@ -40,32 +40,32 @@
                 <button onclick="cerrarSesion()" class="button">Cerrar Sesión</button>
             </div>
 
-            <h2>Clientes</h2>
+            <h2>Proveedores</h2>
 
             <br>
 
-            <!--Formulario para agregar nuevos clientes-->
-            <h2>Agregar nuevos clientes</h2>
+            <!--Formulario para agregar nuevos proveedores-->
+            <h2>Agregar nuevos Proveedores</h2>
             
             <br>
 
-            <form action="PHP/agregar_clientes_be.php" method="POST">
-                Cédula <input type="text" name="cedula"><br>
+            <form action="PHP/agregar_provee_be.php" method="POST">
+                NIT <input type="text" name="nit"><br>
                 Nombre <input type="text" name="nombre_completo"><br>
                 Email <input type="text" name="email"><br>
                 Celular <input type="text" name="celular"><br>
-                <input type="submit" value="Agregar Cliente">
+                <input type="submit" value="Agregar Proveedor">
             </form>
 
             <br>
 
-            <h2>Clientes registrados</h2>
+            <h2>Proveedores registrados</h2>
 
-            <!--Tabla para mostrar los clientes existentes-->
+            <!--Tabla para mostrar los proveedores existentes-->
             <table border="1">
                 <tr>
                     <th>ID</th>
-                    <th>Cédula</th>
+                    <th>NIT</th>
                     <th>Nombre</th>
                     <th>Email</th>
                     <th>Celular</th>
@@ -76,27 +76,27 @@
                     //Conexión a la base de datos 
                     include 'PHP/conexion_be.php';
                     
-                    //Consulta SQL para seleccionar los clientes
-                    $sql = "SELECT id, cedula, nombre_completo, email, celular FROM clientes";
+                    //Consulta SQL para seleccionar los proveedores
+                    $sql = "SELECT id, nit, nombre_completo, email, celular FROM proveedores";
                     $result = $conexion->query($sql);
 
-                    //Mostrar los clientes en la tabla
+                    //Mostrar los proveedores en la tabla
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>
                                     <td>" . htmlspecialchars($row["id"]) . "</td>
-                                    <td>" . htmlspecialchars($row["cedula"]) . "</td>
+                                    <td>" . htmlspecialchars($row["nit"]) . "</td>
                                     <td>" . htmlspecialchars($row["nombre_completo"]) . "</td>
                                     <td>" . htmlspecialchars($row["email"]) . "</td>
                                     <td>" . htmlspecialchars($row["celular"]) . "</td> 
                                     <td>
-                                        <button onclick=\"window.location.href='PHP/editar_cliente_be.php?id=" . htmlspecialchars($row["id"]) . "'\">Editar</button>
-                                        <button onclick=\"window.location.href='PHP/eliminar_cliente_be.php?id=" . htmlspecialchars($row["id"]) . "'\">Eliminar</button>
+                                        <button onclick=\"window.location.href='PHP/editar_provee_be.php?id=" . htmlspecialchars($row["id"]) . "'\">Editar</button>
+                                        <button onclick=\"window.location.href='PHP/eliminar_provee_be.php?id=" . htmlspecialchars($row["id"]) . "'\">Eliminar</button>
                                     </td>
                                 </tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='6'>No hay clientes</td></tr>";
+                        echo "<tr><td colspan='6'>No hay proveedores</td></tr>";
                     }
 
                     $conexion->close();

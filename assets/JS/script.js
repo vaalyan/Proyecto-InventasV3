@@ -44,7 +44,7 @@ function irAClientes() {
 }
 
 function irAProveedores() {
-    window.location.href = '/proveedores.html';
+    window.location.href = '/proveedores.php';
 }
 
 function irACuadreCaja() {
@@ -59,6 +59,13 @@ function cerrarSesion() {
     window.location.href = '../PHP/cerrar_sesion.php';
 }
 
+/* Para confirmar la eliminación del cliente
+function confirmarEliminacion(id) {
+    if (confirm("¿Seguro que desea eliminar el cliente?")) {
+        window.location.href = '/PHP/eliminar_cliente_be.php?id=' + id;
+    }
+} 
+*/
 
 //Para la interactividad de los formularios de inicio-registro
 document.getElementById("btn__iniciar-sesion").addEventListener("click", iniciarSesion);

@@ -7,11 +7,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cedula = $_POST['cedula'];
     $nombre_completo = $_POST['nombre_completo'];
     $email = $_POST['email'];
+    $celular = $_POST['celular'];
 
     // Preparar la consulta SQL con placeholders
-    $sql = "UPDATE clientes SET cedula = ?, nombre_completo = ?, email = ? WHERE id = ?";
+    $sql = "UPDATE clientes SET cedula = ?, nombre_completo = ?, email = ?, celular = ? WHERE id = ?";
     $stmt = $conexion->prepare($sql);
-    $stmt->bind_param("sssi", $cedula, $nombre_completo, $email, $id);
+    $stmt->bind_param("ssssi", $cedula, $nombre_completo, $email, $celular, $id);
 
     // Ejecutar la consulta y verificar el resultado
     if ($stmt->execute() === TRUE) {

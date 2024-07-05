@@ -4,7 +4,7 @@ include 'conexion_be.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM clientes WHERE id = ?";
+    $sql = "SELECT * FROM proveedores WHERE id = ?";
     $stmt = $conexion->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -13,13 +13,13 @@ if (isset($_GET['id'])) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
     } else {
-        echo "<script>alert('Cliente no encontrado.'); window.location.href='../clientes.php';</script>";
+        echo "<script>alert('Proveedor no encontrado.'); window.location.href='../proveedores.php';</script>";
         exit();
     }
 
     $stmt->close();
 } else {
-    echo "<script>alert('ID no proporcionado.'); window.location.href='../clientes.php';</script>";
+    echo "<script>alert('ID no proporcionado.'); window.location.href='../proveedores.php';</script>";
     exit();
 }
 ?>
@@ -29,7 +29,7 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Clientes - INVENTAS</title>
+    <title>Editar Proveedor - INVENTAS</title>
 
     <meta name="description" content="Sistema de Gestión de Inventarios">
     <link rel="icon" type="image/png" href="/imag/inventas.png">
@@ -53,16 +53,16 @@ if (isset($_GET['id'])) {
                     
                     <br>
 
-                    <h2>Editar Cliente</h2>
-                    <form action="actualizar_cliente_be.php" method="POST">
+                    <h2>Editar Proveedor</h2>
+                    <form action="actualizar_provee_be.php" method="POST">
                         <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
-                        Cédula: <input type="text" name="cedula" value="<?php echo htmlspecialchars($row['cedula']); ?>"><br>
+                        NIT: <input type="text" name="nit" value="<?php echo htmlspecialchars($row['nit']); ?>"><br>
                         Nombre: <input type="text" name="nombre_completo" value="<?php echo htmlspecialchars($row['nombre_completo']); ?>"><br>
                         Email: <input type="text" name="email" value="<?php echo htmlspecialchars($row['email']); ?>"><br>
                         Celular: <input type="text" name="celular" value="<?php echo htmlspecialchars($row['celular']); ?>"><br>
                         <input type="submit" value="Guardar Cambios">
                     </form>
-                    <button onclick="window.location.href='../clientes.php'">Cancelar</button>
+                    <button onclick="window.location.href='../proveedores.php'">Cancelar</button>
 
         </div>
     </main>
