@@ -62,6 +62,8 @@ if (isset($_GET['id'])) {
                     <h2>Editar Producto</h2>
                     <form action="actualizar_item_be.php" method="POST">
                         <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                        <label for="codigo">Código:</label>
+                        <input type="text" id="codigo" name="codigo" value="<?php echo htmlspecialchars($row['codigo']); ?>" required><br>  
                         <label for="articulo">Artículo:</label>
                         <input type="text" id="articulo" name="articulo" value="<?php echo htmlspecialchars($row['articulo']); ?>" required><br>
                         <label for="cantidad">Cantidad:</label>
