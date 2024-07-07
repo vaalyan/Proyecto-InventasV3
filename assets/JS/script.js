@@ -32,7 +32,7 @@ function irAInicio() {
 }
 
 function irAInventario() {
-    window.location.href = '/inventario.html';
+    window.location.href = '/inventario.php';
 }
 
 function irACarritoVentas() {

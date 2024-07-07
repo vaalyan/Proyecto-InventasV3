@@ -16,14 +16,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Ejecutar la consulta y verificar el resultado
     if ($stmt->execute() === TRUE) {
-        echo "<script>alert('Cliente actualizado con éxito.'); window.location.href='../clientes.php';</script>";
+        echo "<script>
+                alert('Cliente actualizado con éxito.');
+                window.location.href='../clientes.php';
+            </script>";
     } else {
-        echo "<script>alert('Error al actualizar el cliente.'); window.location.href='../clientes.php';</script>";
+        echo "<script>
+                alert('Error al actualizar el cliente.');
+                window.location.href='../clientes.php';
+            </script>";
     }
 
     $stmt->close();
     $conexion->close();
 } else {
-    echo "<script>alert('Método de solicitud no permitido.'); window.location.href='../clientes.php';</script>";
+    echo "<script>
+            alert('Método de solicitud no permitido.'); 
+            window.location.href='../clientes.php';
+        </script>";
 }
 ?>

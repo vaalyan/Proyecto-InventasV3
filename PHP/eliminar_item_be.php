@@ -5,18 +5,18 @@ include 'conexion_be.php';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    //Eliminar al cliente de la base de datos
-    $sql = "DELETE FROM proveedores WHERE id = $id";
+    //Eliminar al producto de la base de datos
+    $sql = "DELETE FROM productos WHERE id = $id";
     if ($conexion->query($sql) === TRUE) {
         echo "<script>
-                alert('Proveedor eliminado con éxito.'); 
-                window.location.href='../proveedores.php'; 
+                alert('Producto eliminado con éxito.'); 
+                window.location.href='../inventario.php'; 
             </script>";       
     } else {
         
         echo "<script>
-                alert('Error al eliminar el proveedor.'); 
-                window.location.href='../proveedores.php'; 
+                alert('Error al eliminar el producto.'); 
+                window.location.href='../inventario.php'; 
             </script>";
     }
 
@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
 } else {
     echo "<script>
             alert('ID no proporcionado.'); 
-            window.location.href='../proveedores.php';
+            window.location.href='../inventario.php';
         </script>";
 }
 ?>

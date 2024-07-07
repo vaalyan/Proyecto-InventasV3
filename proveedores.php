@@ -90,7 +90,7 @@
                                     <td>" . htmlspecialchars($row["email"]) . "</td>
                                     <td>" . htmlspecialchars($row["celular"]) . "</td> 
                                     <td>
-                                        <button onclick=\"window.location.href='PHP/editar_provee_be.php?id=" . htmlspecialchars($row["id"]) . "'\">Editar</button>
+                                        <button onclick=\"window.location.href='PHP/editar_provee.php?id=" . htmlspecialchars($row["id"]) . "'\">Editar</button>
                                         <button onclick=\"window.location.href='PHP/eliminar_provee_be.php?id=" . htmlspecialchars($row["id"]) . "'\">Eliminar</button>
                                     </td>
                                 </tr>";

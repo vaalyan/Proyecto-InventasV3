@@ -1,9 +1,9 @@
 <?php
     session_start();
-    if(!isset($_SESSION['usuario'])){ //proteccion sessión
+    if(!isset($_SESSION['usuario'])){ //proteccion sesión
         echo '
             <script>
-                alert("Por favor, iniciar sesión");
+                alert("Primero debe de iniciar sesión");
                 window.location = "../index.php";
             </script>
         ';
