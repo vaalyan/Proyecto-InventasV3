@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Producto - INVENTAS</title>
+    <title>Agregar Productos - INVENTAS</title>
 
     <meta name="descripción" content="Sistema de Gestión de Inventarios">
     <link rel="icon" type="image/png" href="/imag/inventas.png">
