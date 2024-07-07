@@ -28,7 +28,7 @@
 
                     <br>
 
-                    <h2>Aregar Productos</h2>
+                    <h2>Agregar Productos</h2>
                     <form action="agregar_item_be.php" method="POST">
                         <label for="codigo">Código</label>
                         <input type="text" id="codigo" name="codigo" required><br>
