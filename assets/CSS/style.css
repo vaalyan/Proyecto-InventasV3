@@ -9,7 +9,8 @@
 }
 
 body {
-    background-image: url(/imag/inventas.png);
+    background-color: #e7f6ff;
+    /*background-image: url(/imag/inventas.png);*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
