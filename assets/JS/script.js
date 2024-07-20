@@ -1,15 +1,4 @@
 /*
-function toggleMenu() {
-    var menu = document.getElementById("miMenu");
-    if (menu.style.display === "block") {
-        menu.style.display = "none";
-    } else {
-        menu.style.display = "block";
-    }
-}
-*/
-
-/*
 function iniciarSesion(event) {
     event.preventDefault(); //evita que el formularo se envie automáticamente
 
@@ -36,7 +25,7 @@ function irAInventario() {
 }
 
 function irACarritoVentas() {
-    window.location.href = '/carrito_ventas.html';
+    window.location.href = '/carrito_ventas.php';
 }
 
 function irAClientes() {
@@ -57,6 +46,10 @@ function irAConfiguración() {
 
 function cerrarSesion() {
     window.location.href = '../PHP/cerrar_sesion.php';
+}
+
+function finalizarCompra() {
+    window.location.href = '..PHP/finalizar_compra.php'
 }
 
 /* Para confirmar la eliminación del cliente
