@@ -9,8 +9,8 @@
 }
 
 body {
-    /*background-color: #e7f6ff;*/
-    background-image: url(/imag/inventas.png);
+    background-color: #155263;
+    /*background-image: url(/imag/inventas.png);*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -94,7 +94,7 @@ main {
 .contenedor__login-register form {
     width: 100%;
     padding: 80px 20px;
-    background: rgb(56, 172, 197);
+    background: rgb(93, 172, 187);
     position: absolute;
     border-radius: 20px;
 }
