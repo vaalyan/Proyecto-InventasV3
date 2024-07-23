@@ -32,7 +32,7 @@ $venta_id = $stmt->insert_id;
 foreach ($_SESSION['carrito'] as $item) {
     $sql = "INSERT INTO detalle_venta (venta_id, producto_id, cantidad, precio_unitario) VALUES (?, ?, ?, ?)";
     $stmt = $conexion->prepare($sql);
-    $stmt->bind_param("iiid", $venta_id, $item['id'], $item['carrito'], $item['precio']);
+    $stmt->bind_param("iiid", $venta_id, $item['id'], $item['cantidad'], $item['precio']);
     $stmt->execute();
 }
 

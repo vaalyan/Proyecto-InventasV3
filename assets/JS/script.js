@@ -45,11 +45,34 @@ function irAConfiguración() {
 }
 
 function cerrarSesion() {
-    window.location.href = '../PHP/cerrar_sesion.php';
+    window.location.href = '/PHP/cerrar_sesion.php';
 }
 
-function finalizarCompra() {
-    window.location.href = '..PHP/finalizar_compra.php'
+function finalizarVenta() {
+    window.location.href = 'PHP/finalizar_venta_be.php'
+
+    const cedula = prompt('Ingrese la cédula del cliente (o deje en blanco para un número aleatorio):') || '2222222222';
+
+    const data = {
+        cedula: cedula,
+        productos: carrito,
+        total: totalVenta
+    };
+
+    fetch('/PHP/procesar_venta_be.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        carrito = [];
+        actualizarTablaCarrito();
+    })
+    .catch(error => console.error('Error:', error));
 }
 
 /* Para confirmar la eliminación del cliente

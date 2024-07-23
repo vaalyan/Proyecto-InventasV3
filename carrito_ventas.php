@@ -52,18 +52,10 @@
                 </thead>
                 <tbody id="carritoBody">
                     <!-- Productos agregados al carrito de ventas -->
-                     <?php
-                        //Conexión a la base de datos 
-                        include 'PHP/conexion_be.php';
-                    
-                        //Consulta SQL para seleccionar los clientes
-                        $sql = "SELECT id, cedula, nombre_completo, email, celular FROM clientes";
-                        $result = $conexion->query($sql);
-                     ?>
                 </tbody>
             </table>
             <h3>Total: <span id="total"></span></h3>
-            <button onclick="finalziarCompra()">Finalizar la Compra</button>
+            <button onclick="finalizarVenta()">Finalizar la Venta</button>
 
     </main>
     
@@ -76,5 +68,68 @@
             <a href="whatsapp://send?text=">Envíame un Whatsapp</a>
         </div>
     </footer>
+
+    <script>
+        let carrito = [];
+        let totalVenta = 0;
+
+        function agregarProductoAlCarrito(event) {
+            event.preventDefault();
+            const codigo = document.getElementById('codigoProducto').value;
+            const cantidad = parseInt(document.getElementById('cantidadProducto').value);
+
+            //Llamada AJAX para los detalles del producto
+            //Ejemplo
+            const producto = {
+                codigo: codigo,
+                articulo: "Producto ejemplo", // Procede de la bd
+                cantidad: cantidad,
+                precio_unitario: 1000 //Procede de la bd
+            };
+
+            //Agregar el producto al carrito
+            carrito.push(producto);
+
+            //Actualizar la tabla del carrit
+            actualizarTablaCarrito();
+        }
+
+        function actualizarTablaCarrito() {
+            const tbody = document.getElementById('carritoBody');
+            tbody.innerHTML = '';
+            totalVenta = 0;
+
+            carrito.forEach((producto, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                <td>${producto.codigo}</td>
+                <td>${producto.articulo}</td>
+                <td>${producto.cantidad}</td>
+                <td>${producto.precio_unitario}</td>
+                <td>${producto.cantidad * producto.precio_unitario}</td>
+                <td>
+                    <button onclick="eliminarProdutoDelCarrito(${index})">Eliminar</button>
+                </td>
+                `;
+                tbody.appendChild(row);
+                totalVenta +=producto.cantidad *producto.precio_unitario;
+            });
+
+            document.getElementById('totalVenta').innerText =totalVenta.toFixed(2);
+        }
+
+        function eliminarProdutoDelCarrito(index) {
+            carrito.splice(index, 1);
+            actualizarTablaCarrito();
+        }
+
+        funtion finalizarVenta() {
+            // Realziar llamada AJAX para enviar los datos al servidor
+            //Ejemplo con alerta
+            alert('Venta Finalziada. Total: $' + totalVenta.toFixed(2));
+        }
+            
+    </script>
+
 </body>
 </html>
