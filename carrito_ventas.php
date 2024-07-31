@@ -123,7 +123,7 @@
             actualizarTablaCarrito();
         }
 
-        funtion finalizarVenta() {
+        function finalizarVenta() {
             // Realziar llamada AJAX para enviar los datos al servidor
             //Ejemplo con alerta
             alert('Venta Finalziada. Total: $' + totalVenta.toFixed(2));
