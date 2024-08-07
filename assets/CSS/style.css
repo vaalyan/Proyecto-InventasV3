@@ -23,6 +23,12 @@ main {
     margin: auto;
     margin-top: 100px;
 }
+.main_bienv {
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 20px;
+}
 
 .logo {
     border-radius: 15px;
@@ -112,7 +118,7 @@ main {
     padding: 10px;
     border:  none;
     border-radius: 8px;
-    background: #f2f2f2;
+    background: #fff;
     font-size: 16px;
     outline: none;
 }
@@ -180,7 +186,7 @@ main {
 .footer {
     text-align: center;
     padding: 10px;
-    background-color: #e8e8e8;
+    background-color: #e7f6ff;
     margin: 5px;
     border-radius: 24px;
     position: relative;
@@ -205,3 +211,38 @@ main {
     margin-right: 10px;
 }
 
+/*Estilos botones página principal*/
+.contenedor__bienvenida {
+    width: 100%;
+    max-width: 2000px;
+    margin: auto;
+    position: relative;
+}
+
+.contenedor__botones button {
+    padding: 8px 24px;
+    border: 1px solid #252525;
+    border-radius: 8px;
+    background: #e7f6ff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #252525;
+}
+
+.contenedor__botones .btn_bienvenida:hover {
+    background: #e3edf8;
+    color: #252525;
+}
+
+.contenedor__botones .cerrar_sesion {
+    background: #e7f6ff;
+    color: #b90808;
+    border: 2px solid #252525
+}
+
+.contenedor__botones .cerrar_sesion:hover {
+    background: #b90808;
+    color: #fff;
+    border: 2px solid #fff;
+}

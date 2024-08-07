@@ -35,57 +35,57 @@ if (isset($_GET['buscar'])) {
 </head>
 <body>
     <main>
-        <div class="contenedor">
-                    <div class="izquierda">
-                        <button onclick="irAInicio()" class="button">Inicio</button>
-                        <button onclick="irAInventario()" class="button">Inventario</button>
-                        <button onclick="irACarritoVentas()" class="button">Carrito de Ventas</button>
-                        <button onclick="irAClientes()" class="button">Clientes</button>
-                        <button onclick="irAProveedores()" class="button">Proveedores</button>
-                        <button onclick="irACuadreCaja()" class="button">Cuadre de Caja</button>
-                        <button onclick="irAConfiguración()" class="button">Configuración</button>
-                        <button onclick="cerrarSesion()" class="button">Cerrar Sesión</button>
-                    </div>
+        <div class="contenedor__bienvenida">
+            <div class="contenedor__botones">
+                <button onclick="irAInicio()" class="button btn_bienvenida">Inicio</button>
+                <button onclick="irAInventario()" class="button btn_bienvenida">Inventario</button>
+                <button onclick="irACarritoVentas()" class="button btn_bienvenida">Carrito de Ventas</button>
+                <button onclick="irAClientes()" class="button btn_bienvenida">Clientes</button>
+                <button onclick="irAProveedores()" class="button btn_bienvenida">Proveedores</button>
+                <button onclick="irACuadreCaja()" class="button btn_bienvenida">Cuadre de Caja</button>
+                <button onclick="irAConfiguración()" class="button btn_bienvenida">Configuración</button>
+                <button onclick="cerrarSesion()" class="cerrar_sesion">Cerrar Sesión</button>
+            </div>
                     
-                    <br>
+            <br>
 
-                    <h2>Resultados de la búsqueda</h2>
-                    <table border="1" class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Código</th>
-                                <th scope="col">Artículo</th>
-                                <th scope="col">Cantidad</th>
-                                <th scope="col">Precio</th>
-                                <th scope="col">Opciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<tr>
-                                            <td>" . htmlspecialchars($row['id']) . "</td>
-                                            <td>" . htmlspecialchars($row['codigo']) . "</td>
-                                            <td>" . htmlspecialchars($row['articulo']) . "</td>
-                                            <td>" . htmlspecialchars($row['cantidad']) . "</td>
-                                            <td>" . htmlspecialchars($row['precio']) . "</td>
-                                            <td>
-                                                <button onclick=\"window.location.href='PHP/editar_item.php?id=" . htmlspecialchars($row["id"]) . "'\">Editar</button>
-                                                <button onclick=\"window.location.href='PHP/eliminar_item_be.php?id=" . htmlspecialchars($row["id"]) . "'\">Eliminar</button>
-                                            </td>
-                                        </tr>";
-                                }
-                            } else {
-                                echo "<tr><td colspan:'6'>No se encontraron resultados</td></tr>";
-                            }
+            <h2>Resultados de la búsqueda</h2>
+            <table border="1" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Código</th>
+                        <th scope="col">Artículo</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>
+                                    <td>" . htmlspecialchars($row['id']) . "</td>
+                                    <td>" . htmlspecialchars($row['codigo']) . "</td>
+                                    <td>" . htmlspecialchars($row['articulo']) . "</td>
+                                    <td>" . htmlspecialchars($row['cantidad']) . "</td>
+                                    <td>" . htmlspecialchars($row['precio']) . "</td>
+                                    <td>
+                                        <button onclick=\"window.location.href='PHP/editar_item.php?id=" . htmlspecialchars($row["id"]) . "'\">Editar</button>
+                                        <button onclick=\"window.location.href='PHP/eliminar_item_be.php?id=" . htmlspecialchars($row["id"]) . "'\">Eliminar</button>
+                                    </td>
+                                </tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan:'6'>No se encontraron resultados</td></tr>";
+                    }
 
-                            $conexion->close();
-                            ?>
-                        </tbody>
-                    </table>
-                    <button onclick="window.location.href='../inventario.php'">Regresar al inventario</button>
+                    $conexion->close();
+                    ?>
+                </tbody>
+            </table>
+            <button onclick="window.location.href='../inventario.php'">Regresar al inventario</button>
         </div>
     </main>
 

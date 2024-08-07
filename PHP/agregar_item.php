@@ -14,32 +14,32 @@
 </head>
 <body>
     <main>
-        <div class="contenedor">
-                    <div class="izquierda">
-                        <button onclick="irAInicio()" class="button">Inicio</button>
-                        <button onclick="irAInventario()" class="button">Inventario</button>
-                        <button onclick="irACarritoVentas()" class="button">Carrito de Ventas</button>
-                        <button onclick="irAClientes()" class="button">Clientes</button>
-                        <button onclick="irAProveedores()" class="button">Proveedores</button>
-                        <button onclick="irACuadreCaja()" class="button">Cuadre de Caja</button>
-                        <button onclick="irAConfiguración()" class="button">Configuración</button>
-                        <button onclick="cerrarSesion()" class="button">Cerrar Sesión</button>
-                    </div>
+        <div class="contenedor__bienvenida">
+            <div class="contenedor__botones">
+                <button onclick="irAInicio()" class="button btn_bienvenida">Inicio</button>
+                <button onclick="irAInventario()" class="button btn_bienvenida">Inventario</button>
+                <button onclick="irACarritoVentas()" class="button btn_bienvenida">Carrito de Ventas</button>
+                <button onclick="irAClientes()" class="button btn_bienvenida">Clientes</button>
+                <button onclick="irAProveedores()" class="button btn_bienvenida">Proveedores</button>
+                <button onclick="irACuadreCaja()" class="button btn_bienvenida">Cuadre de Caja</button>
+                <button onclick="irAConfiguración()" class="button btn_bienvenida">Configuración</button>
+                <button onclick="cerrarSesion()" class="button cerrar_sesion">Cerrar Sesión</button>
+            </div>
 
-                    <br>
+            <br>
 
-                    <h2>Agregar Productos</h2>
-                    <form action="agregar_item_be.php" method="POST">
-                        <label for="codigo">Código</label>
-                        <input type="text" id="codigo" name="codigo" required><br>
-                        <label for="codigo">Artículo</label>
-                        <input type="text" id="articulo" name="articulo" required><br>
-                        <label for="codigo">Cantidad</label>
-                        <input type="text" id="cantidad" name="cantidad" required><br>
-                        <label for="precio">Precio</label>
-                        <input type="text" id="precio" name="precio" required><br>
-                        <button type="submit">Agregar</button>
-                    </form>
+            <h2>Agregar Productos</h2>
+            <form action="agregar_item_be.php" method="POST">
+                <label for="codigo">Código</label>
+                <input type="text" id="codigo" name="codigo" required><br>
+                <label for="codigo">Artículo</label>
+                <input type="text" id="articulo" name="articulo" required><br>
+                <label for="codigo">Cantidad</label>
+                <input type="text" id="cantidad" name="cantidad" required><br>
+                <label for="precio">Precio</label>
+                <input type="text" id="precio" name="precio" required><br>
+                <button type="submit">Agregar</button>
+            </form>
         </div>
     </main>
 
