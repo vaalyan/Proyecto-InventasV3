@@ -46,6 +46,9 @@ if (isset($_GET['id'])) {
 <body>
     <main>
         <div class="contenedor__bienvenida">
+            <div>
+                <img src="imag/BANNER.INVENTAS.png" alt="">
+            </div>
             <div class="contenedor__botones">
                 <button onclick="irAInicio()" class="button btn_bienvenida">Inicio</button>
                 <button onclick="irAInventario()" class="button btn_bienvenida">Inventario</button>

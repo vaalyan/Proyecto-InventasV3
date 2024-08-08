@@ -37,11 +37,11 @@ function irAProveedores() {
 }
 
 function irACuadreCaja() {
-    window.location.href = '/cuadre_caja.html';
+    window.location.href = '/cuadre_caja.php';
 }
 
 function irAConfiguración() {
-    window.location.href = '/configuracion.html';
+    window.location.href = '/configuracion.php';
 }
 
 function cerrarSesion() {
