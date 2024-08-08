@@ -108,10 +108,11 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <img src="/imag/correo-de-contacto.png"> 
-            Contáctanos
+            <img src="imag/email2.png" alt="">
             <a href="mailto:dan9849r@gmail.com">Envíame un Correo</a>
-            <a href="tel:+573215684033">Llámame</a>
+            <img src="imag/celular.png" alt="">
+            <a href="tel:+5732056674033">Lámame</a>
+            <img src="imag/whatsapp2.png" alt="">
             <a href="whatsapp://send?text=">Envíame un Whatsapp</a>
         </div>
     </footer>
