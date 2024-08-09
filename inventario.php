@@ -13,7 +13,7 @@
     
 </head>
 <body>
-    <main>
+    <main class="main_bienv">
         <div class="contenedor__bienvenida">
             <div>
                 <img src="imag/BANNER.INVENTAS.png" alt="">
