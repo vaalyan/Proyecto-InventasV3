@@ -35,9 +35,9 @@
                     <label for="cedula">Cédula del Cliente (Opcional):</label>
                     <input type="text" name="cedula" id="cedula" placeholder="Cédula del Cliente"><br>
                     <label for="codigo_producto">Código del Producto:</label>
-                    <input type="text" name="codigo_producto" id="codigo_producto" required><br>
+                    <input type="text" name="codigo_producto" id="codigoProducto" required><br>
                     <label for="cantidad">Cantidad:</label>
-                    <input type="text" name="cantidad" id="cantidad" required><br>
+                    <input type="text" name="cantidad" id="cantidadProducto" required><br>
                     <button type="submit" >Agregar al Carrito</button>
                 </form>
             </div>
@@ -78,24 +78,39 @@
         let totalVenta = 0;
 
         function agregarProductoAlCarrito(event) {
-            event.preventDefault();
-            const codigo = document.getElementById('codigoProducto').value;
-            const cantidad = parseInt(document.getElementById('cantidadProducto').value);
+            event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
 
-            //Llamada AJAX para los detalles del producto
-            //Ejemplo
-            const producto = {
-                codigo: codigo,
-                articulo: "Producto ejemplo", // Procede de la bd
-                cantidad: cantidad,
-                precio_unitario: 1000 //Procede de la bd
+            const codigo = document.getElementById('codigo_producto').value;
+            const cantidad = parseInt(document.getElementById('cantidad').value);
+
+            // Realizar una llamada AJAX para obtener los detalles del producto desde el servidor
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'PHP/agregar_carrito_be.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    try {
+                        const response = JSON.parse(xhr.responseText);
+
+                        if (response.success) {
+                            const producto = {
+                                codigo: response.producto.codigo,
+                                articulo: response.producto.articulo,
+                                cantidad: cantidad,
+                                precio_unitario: response.producto.precio
+                            };
+
+                            carrito.push(producto);
+                            actualizarTablaCarrito(); // Actualiza la tabla en la página
+                        } else {
+                            alert(response.message); // Muestra el mensaje de error
+                        }
+                    } catch (e) {
+                        console.error("Error parsing JSON:", e);
+                    }
+                }
             };
-
-            //Agregar el producto al carrito
-            carrito.push(producto);
-
-            //Actualizar la tabla del carrit
-            actualizarTablaCarrito();
+            xhr.send(`codigo_producto=${codigo}&cantidad=${cantidad}`);
         }
 
         function actualizarTablaCarrito() {

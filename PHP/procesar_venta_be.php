@@ -10,7 +10,7 @@ $total = $data['total'];
 // Insertar venta
 $sql_venta = "INSERT INTO ventas (cedula, total, fecha) VALUES (?, ?, NOW())";
 $stmt_venta = $conexion->prepare($sql_venta);
-$stmt_venta->bind_param("sd". $cedula, $total);
+$stmt_venta->bind_param("sd", $cedula, $total);
 $stmt_venta->execute();
 $venta_id = $stmt_venta->insert_id;
 $stmt_venta->close();
@@ -20,7 +20,7 @@ $sql_detalle = "INSERT INTO detalle_venta (venta_id, producto_id, cantidad, prec
 $stmt_detalle = $conexion->prepare($sql_detalle);
 
 foreach($productos as $producto) {
-    $producto_id = $productos['codigo']; //Checar diferencia con ID
+    $producto_id = $producto['codigo']; //Checar diferencia con ID
     $cantidad = $producto['cantidad'];
     $precio_unitario = $producto['precio_unitario'];
     $stmt_detalle->bind_param("iiid", $venta_id, $producto_id, $cantidad, $precio_unitario);

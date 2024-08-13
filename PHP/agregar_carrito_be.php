@@ -23,16 +23,25 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $producto = $result->fetch_assoc();
-    $producto['cantidad'];
+    $producto['cantidad'] = $cantidad;
     $producto['total'] = $producto['precio'] * $cantidad;
 
     //Agregar el producto al carrito
     $_SESSION['carrito'][] = $producto;
 
-    echo "<script>
-            alert('Producto agregado al carrito.');
-            window.location.href='../carrito_ventas.php';
-         </script>";
+    echo json_encode([
+        'success' => true,
+        'producto' => [
+            'codigo' => $producto['codigo'],
+            'articulo' => $producto['articulo'],
+            'precio' => $producto['precio']
+        ]
+        ]);
+} else {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Producto no encontrado.'
+    ]);
 }
 
 $conexion->close();

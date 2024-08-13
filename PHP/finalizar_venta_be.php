@@ -21,7 +21,7 @@ foreach ($_SESSION['carrito'] as $item) {
 }
 
 //Guardar la venta en la base de datos
-$cedula = isset($_SESSION['carrito'][0]['cedula']) ? $_SESSION['carrito'][0]['cedula'] : '2222222222';
+$cedula = isset($_POST['cedula']) ? $_POST['cedula'] : '2222222222';
 $sql = "INSERT INTO ventas (cedula, total, fecha) VALUES (?, ?, NOW())";
 $stmt = $conexion->prepare($sql);
 $stmt->bind_param("sd", $cedula, $total);
