@@ -1,33 +1,99 @@
 <?php 
+session_start();
+
 // Conexión a la base de datos
 include 'conexion_be.php';
 
-$data = json_decode(file_get_contents("php://input"), true);
-$cedula = $data['cedula'];
-$productos = $data['productos'];
-$total = $data['total'];
-
-// Insertar venta
-$sql_venta = "INSERT INTO ventas (cedula, total, fecha) VALUES (?, ?, NOW())";
-$stmt_venta = $conexion->prepare($sql_venta);
-$stmt_venta->bind_param("sd", $cedula, $total);
-$stmt_venta->execute();
-$venta_id = $stmt_venta->insert_id;
-$stmt_venta->close();
-
-// Insertar detalles de venta
-$sql_detalle = "INSERT INTO detalle_venta (venta_id, producto_id, cantidad, precio_unitario) VALUES (?, ?, ?, ?)";
-$stmt_detalle = $conexion->prepare($sql_detalle);
-
-foreach($productos as $producto) {
-    $producto_id = $producto['codigo']; //Checar diferencia con ID
-    $cantidad = $producto['cantidad'];
-    $precio_unitario = $producto['precio_unitario'];
-    $stmt_detalle->bind_param("iiid", $venta_id, $producto_id, $cantidad, $precio_unitario);
-    $stmt_detalle->execute();
+// Verificar si la sesión de carrito existe
+if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'El carrito está vacío.'
+    ]);
+    exit;
 }
 
-$stmt_detalle->close();
-$conexion->close();
+// Validar datos del formulario
+$cedula = isset($_POST['cedula']) ? $_POST['cedula'] : '2222222222';
+$codigo_producto = isset($_POST['codigo_producto']) ? trim($_POST['codigo_producto']) : '';
+$cantidad = filter_var($_POST['cantidad'], FILTER_VALIDATE_INT);
 
-echo json_encode(["message" => "Venta procesada con éxito"]);
+if (!$cantidad || $cantidad <= 0) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Cantidad inválida.'
+    ]);
+    exit;
+}
+
+if (empty($codigo_producto)) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Código de producto vacío.'
+    ]);
+    exit;
+}
+
+// Preparar la consulta para obtener el producto
+$sql = "SELECT * FROM productos WHERE codigo = ?";
+$stmt = $conexion->prepare($sql);
+if ($stmt === false) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Error al preparar la consulta.'
+    ]);
+    exit;
+}
+
+$stmt->bind_param("s", $codigo_producto);
+if (!$stmt->execute()) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Error al ejecutar la consulta.',
+        'error' => $stmt->error
+    ]);
+    exit;
+}
+
+$result = $stmt->get_result();
+if ($result->num_rows > 0) {
+    $producto = $result->fetch_assoc();
+    $producto['cantidad'] = $cantidad;
+    $producto['total'] = $producto['precio'] * $cantidad;
+
+    // Verificar si el producto ya está en el carrito
+    $productoEncontrado = false;
+    foreach ($_SESSION['carrito'] as &$item) {
+        if ($item['codigo'] == $codigo_producto) {
+            $item['cantidad'] += $cantidad;
+            $item['total'] = $item['cantidad'] * $item['precio'];
+            $productoEncontrado = true;
+            break;
+        }
+    }
+    
+    if (!$productoEncontrado) {
+        $_SESSION['carrito'][] = $producto;
+    }
+
+    echo json_encode([
+        'success' => true,
+        'producto' => [
+            'codigo' => $producto['codigo'],
+            'articulo' => $producto['articulo'],
+            'precio' => $producto['precio'],
+            'cantidad' => $producto['cantidad'],
+            'total' => $producto['total']
+        ]
+    ]);
+} else {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Producto no encontrado.'
+    ]);
+}
+
+// Cerrar la declaración y la conexión
+$stmt->close();
+$conexion->close();
+?>

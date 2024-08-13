@@ -34,11 +34,11 @@
                 <form id="carritoForm" action="PHP/agregar_carrito_be.php" method="POST">
                     <label for="cedula">Cédula del Cliente (Opcional):</label>
                     <input type="text" name="cedula" id="cedula" placeholder="Cédula del Cliente"><br>
-                    <label for="codigo_producto">Código del Producto:</label>
+                    <label for="codigoProducto">Código del Producto:</label>
                     <input type="text" name="codigo_producto" id="codigoProducto" required><br>
-                    <label for="cantidad">Cantidad:</label>
+                    <label for="cantidadProducto">Cantidad:</label>
                     <input type="text" name="cantidad" id="cantidadProducto" required><br>
-                    <button type="submit" >Agregar al Carrito</button>
+                    <button type="submit" onclick="agregarProductoAlCarrito(event)">Agregar al Carrito</button>
                 </form>
             </div>
             <h2>Productos en el Carrito</h2>
@@ -80,8 +80,8 @@
         function agregarProductoAlCarrito(event) {
             event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
 
-            const codigo = document.getElementById('codigo_producto').value;
-            const cantidad = parseInt(document.getElementById('cantidad').value);
+            const codigo = document.getElementById('codigoProducto').value;
+            const cantidad = parseInt(document.getElementById('cantidadProducto').value);
 
             // Realizar una llamada AJAX para obtener los detalles del producto desde el servidor
             const xhr = new XMLHttpRequest();
@@ -134,7 +134,7 @@
                 totalVenta +=producto.cantidad *producto.precio_unitario;
             });
 
-            document.getElementById('totalVenta').innerText =totalVenta.toFixed(2);
+            document.getElementById('total').innerText =totalVenta.toFixed(2); // Corregido el ID
         }
 
         function eliminarProdutoDelCarrito(index) {
@@ -145,7 +145,7 @@
         function finalizarVenta() {
             // Realziar llamada AJAX para enviar los datos al servidor
             //Ejemplo con alerta
-            alert('Venta Finalziada. Total: $' + totalVenta.toFixed(2));
+            alert('Venta Finalizada. Total: $' + totalVenta.toFixed(2));
         }
             
     </script>

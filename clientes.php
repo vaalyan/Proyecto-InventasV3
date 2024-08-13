@@ -55,7 +55,7 @@
             
             <br>
 
-            <form action="PHP/agregar_clientes_be.php" method="POST">
+            <form class="formularios_pc" action="PHP/agregar_clientes_be.php" method="POST">
                 Cédula <input type="text" name="cedula"><br>
                 Nombre <input type="text" name="nombre_completo"><br>
                 Email <input type="text" name="email"><br>
@@ -67,8 +67,10 @@
 
             <h2>Clientes registrados</h2>
 
+            <br>
+
             <!--Tabla para mostrar los clientes existentes-->
-            <table border="1">
+            <table>
                 <tr>
                     <th>ID</th>
                     <th>Cédula</th>

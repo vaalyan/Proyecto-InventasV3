@@ -32,20 +32,19 @@
             
             <div class="derecha">
                 <h1>Inventario</h1>
-                <form action="../PHP/buscar_item.php" method="GET">
+                <form class="formularios_pc" action="../PHP/buscar_item.php" method="GET">
                     <label>
                         <input type="text" name="buscar" placeholder="Buscar...">
                         <button type="submit">Buscar
                             <img src="/imag/buscar.png" width="24" height="24">
                         </button>
+                        <button type="submit" onclick="window.location.href='../PHP/agregar_item.php'">Agregar
+                            <img src="/imag/boton-agregar.png" width="24" height="24">
+                        </button>
                     </label>
                 </form>
 
-                <button onclick="window.location.href='../PHP/agregar_item.php'">Agregar
-                    <img src="/imag/boton-agregar.png" width="24" height="24">
-                </button>
-
-                <table border="1" class="table table-striped">
+                <table>
                     <thead>
                         <tr>
                             <th scope="col">ID</th>

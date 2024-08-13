@@ -13,7 +13,7 @@
     
 </head>
 <body>
-    <main>
+    <main class="main_bienv">
         <div class="contenedor__bienvenida">
             <div>
                 <img src="imag/BANNER.INVENTAS.png" alt="">
@@ -32,7 +32,7 @@
             <br>
 
             <h2>Agregar Productos</h2>
-            <form action="agregar_item_be.php" method="POST">
+            <form class="formularios_pc" action="agregar_item_be.php" method="POST">
                 <label for="codigo">Código</label>
                 <input type="text" id="codigo" name="codigo" required><br>
                 <label for="codigo">Artículo</label>

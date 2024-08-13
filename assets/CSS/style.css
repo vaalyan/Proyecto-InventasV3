@@ -246,3 +246,75 @@ main {
     color: #fff;
     border: 2px solid #fff;
 }
+
+/*Estilos Tablas*/
+table {
+    width: 100%;
+    border-collapse: collapse ;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.formularios_pc {
+    width: 400px;
+    margin: 0 left;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.formularios_pc label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.formularios_pc input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+}
+
+.formularios_pc input[type="submit"] {
+    background-color: #252525;
+    color: #e3edf8;
+    border: 1px solid #fff;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.formularios_pc input[type="submit"]:hover {
+    background-color: #e3edf8;
+    color: #252525;
+    border: 1px solid #252525;
+}
+
+.formularios_pc button[type="submit"] {
+    background-color: #252525;
+    color: #e3edf8;
+    border: 1px solid #fff;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.formularios_pc button[type="submit"]:hover {
+    background-color: #e3edf8;
+    color: #252525;
+    border: 1px solid #252525;
+}

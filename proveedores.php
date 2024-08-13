@@ -27,7 +27,7 @@
     <script src="/assets/JS/script.js"></script>
 </head>
 <body>
-    <main>
+    <main class="main_bienv">
         <div class="contenedor__bienvenida">
             <div>
                 <img src="imag/BANNER.INVENTAS.png" alt="">
@@ -53,7 +53,7 @@
             
             <br>
 
-            <form action="PHP/agregar_provee_be.php" method="POST">
+            <form class="formularios_pc" action="PHP/agregar_provee_be.php" method="POST">
                 NIT <input type="text" name="nit"><br>
                 Nombre <input type="text" name="nombre_completo"><br>
                 Email <input type="text" name="email"><br>
