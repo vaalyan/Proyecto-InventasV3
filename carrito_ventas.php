@@ -15,9 +15,6 @@
 <body>
     <main class="main_bienv">
         <div class="contenedor__bienvenida">
-            <div>
-                <img src="imag/BANNER.INVENTAS.png" alt="">
-            </div>
             <div class="contenedor__botones">
                 <button onclick="irAInicio()" class="button btn_bienvenida">Inicio</button>
                 <button onclick="irAInventario()" class="button btn_bienvenida">Inventario</button>
@@ -31,7 +28,7 @@
 
             <div class="derecha">
                 <h1>Carrito de Ventas</h1>
-                <form id="carritoForm" action="PHP/agregar_carrito_be.php" method="POST">
+                <form class="formularios_pc" id="carritoForm" action="PHP/agregar_carrito_be.php" method="POST">
                     <label for="cedula">Cédula del Cliente (Opcional):</label>
                     <input type="text" name="cedula" id="cedula" placeholder="Cédula del Cliente"><br>
                     <label for="codigoProducto">Código del Producto:</label>
@@ -39,10 +36,11 @@
                     <label for="cantidadProducto">Cantidad:</label>
                     <input type="text" name="cantidad" id="cantidadProducto" required><br>
                     <button type="submit" onclick="agregarProductoAlCarrito(event)">Agregar al Carrito</button>
+                    <button type="submit" onclick="finalizarVenta()">Finalizar la Venta</button>
                 </form>
             </div>
             <h2>Productos en el Carrito</h2>
-            <table border="1" class="table table-striped">
+            <table>
                 <thead>
                     <tr>
                         <th scope="col">Código</th>
@@ -58,18 +56,18 @@
                 </tbody>
             </table>
             <h3>Total: <span id="total"></span></h3>
-            <button onclick="finalizarVenta()">Finalizar la Venta</button>
-
+            
+        </div>
     </main>
     
     <footer class="footer">
         <div class="footer-content">
-            <img src="imag/email2.png" alt="">
             <a href="mailto:dan9849r@gmail.com">Envíame un Correo</a>
-            <img src="imag/celular.png" alt="">
+            <img src="imag/email2.png" alt="">
             <a href="tel:+5732056674033">Lámame</a>
-            <img src="imag/whatsapp2.png" alt="">
+            <img src="imag/celular.png" alt="">
             <a href="whatsapp://send?text=">Envíame un Whatsapp</a>
+            <img src="imag/whatsapp2.png" alt="">
         </div>
     </footer>
 
@@ -127,7 +125,7 @@
                 <td>${producto.precio_unitario}</td>
                 <td>${producto.cantidad * producto.precio_unitario}</td>
                 <td>
-                    <button onclick="eliminarProdutoDelCarrito(${index})">Eliminar</button>
+                    <button class='btn eliminar' onclick="eliminarProdutoDelCarrito(${index})">Eliminar</button>
                 </td>
                 `;
                 tbody.appendChild(row);
@@ -143,11 +141,32 @@
         }
 
         function finalizarVenta() {
-            // Realziar llamada AJAX para enviar los datos al servidor
-            //Ejemplo con alerta
-            alert('Venta Finalizada. Total: $' + totalVenta.toFixed(2));
+            /*const cedula = prompt('Ingrese la cédula del cliente (o deje en blanco para un número aleatorio):') || '2222222222';*/
+
+            const data = {
+                cedula: cedula
+            };
+
+            fetch('PHP/finalizar_venta_be.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Venta finalizada con éxito.');
+                    carrito = [];
+                    actualizarTablaCarrito();
+                    window.location.href = '../carrito_ventas.php'; // Redirige tras finalizar la venta
+                } else {
+                    alert('Error al finalizar la venta: ' + data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
         }
-            
     </script>
 
 </body>

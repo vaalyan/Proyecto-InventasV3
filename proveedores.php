@@ -29,9 +29,6 @@
 <body>
     <main class="main_bienv">
         <div class="contenedor__bienvenida">
-            <div>
-                <img src="imag/BANNER.INVENTAS.png" alt="">
-            </div>
             <div class="contenedor__botones">
                 <button onclick="irAInicio()" class="button btn_bienvenida">Inicio</button>
                 <button onclick="irAInventario()" class="button btn_bienvenida">Inventario</button>
@@ -43,8 +40,7 @@
                 <button onclick="cerrarSesion()" class="cerrar_sesion">Cerrar Sesión</button>
             </div>
 
-
-            <h2>Proveedores</h2>
+            <h1>Proveedores</h1>
 
             <br>
 
@@ -94,8 +90,8 @@
                                     <td>" . htmlspecialchars($row["email"]) . "</td>
                                     <td>" . htmlspecialchars($row["celular"]) . "</td> 
                                     <td>
-                                        <button onclick=\"window.location.href='PHP/editar_provee.php?id=" . htmlspecialchars($row["id"]) . "'\">Editar</button>
-                                        <button onclick=\"window.location.href='PHP/eliminar_provee_be.php?id=" . htmlspecialchars($row["id"]) . "'\">Eliminar</button>
+                                        <button class='btn editar' onclick=\"window.location.href='PHP/editar_provee.php?id=" . htmlspecialchars($row["id"]) . "'\">Editar</button>
+                                        <button class='btn eliminar' onclick=\"window.location.href='PHP/eliminar_provee_be.php?id=" . htmlspecialchars($row["id"]) . "'\">Eliminar</button>
                                     </td>
                                 </tr>";
                         }
@@ -111,12 +107,12 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <img src="imag/email2.png" alt="">
             <a href="mailto:dan9849r@gmail.com">Envíame un Correo</a>
-            <img src="imag/celular.png" alt="">
+            <img src="imag/email2.png" alt="">
             <a href="tel:+5732056674033">Lámame</a>
-            <img src="imag/whatsapp2.png" alt="">
+            <img src="imag/celular.png" alt="">
             <a href="whatsapp://send?text=">Envíame un Whatsapp</a>
+            <img src="imag/whatsapp2.png" alt="">
         </div>
     </footer>
 </body>

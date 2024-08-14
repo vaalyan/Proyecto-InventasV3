@@ -15,9 +15,6 @@
 <body>
     <main class="main_bienv">
         <div class="contenedor__bienvenida">
-            <div>
-                <img src="imag/BANNER.INVENTAS.png" alt="">
-            </div>
             <div class="contenedor__botones">
                 <button onclick="irAInicio()" class="button btn_bienvenida">Inicio</button>
                 <button onclick="irAInventario()" class="button btn_bienvenida">Inventario</button>
@@ -28,22 +25,18 @@
                 <button onclick="irAConfiguración()" class="button btn_bienvenida">Configuración</button>
                 <button onclick="cerrarSesion()" class="button cerrar_sesion">Cerrar Sesión</button>
             </div>
-
-
-            <div class="derecha">
-
-            </div>
+        </div>
 
     </main>
     
     <footer class="footer">
         <div class="footer-content">
-            <img src="imag/email2.png" alt="">
             <a href="mailto:dan9849r@gmail.com">Envíame un Correo</a>
-            <img src="imag/celular.png" alt="">
+            <img src="imag/email2.png" alt="">
             <a href="tel:+5732056674033">Lámame</a>
-            <img src="imag/whatsapp2.png" alt="">
+            <img src="imag/celular.png" alt="">
             <a href="whatsapp://send?text=">Envíame un Whatsapp</a>
+            <img src="imag/whatsapp2.png" alt="">
         </div>
     </footer>
 </body>

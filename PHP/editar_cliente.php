@@ -46,9 +46,6 @@ if (isset($_GET['id'])) {
 <body>
     <main>
         <div class="contenedor__bienvenida">
-            <div>
-                <img src="imag/BANNER.INVENTAS.png" alt="">
-            </div>
             <div class="contenedor__botones">
                 <button onclick="irAInicio()" class="button btn_bienvenida">Inicio</button>
                 <button onclick="irAInventario()" class="button btn_bienvenida">Inventario</button>
@@ -63,27 +60,30 @@ if (isset($_GET['id'])) {
             <br>
 
             <h2>Editar Cliente</h2>
-            <form action="actualizar_cliente_be.php" method="POST">
+
+            <br>
+            
+            <form class="formularios_pc" action="actualizar_cliente_be.php" method="POST">
                 <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
                 Cédula: <input type="text" name="cedula" value="<?php echo htmlspecialchars($row['cedula']); ?>"><br>
                 Nombre: <input type="text" name="nombre_completo" value="<?php echo htmlspecialchars($row['nombre_completo']); ?>"><br>
                 Email: <input type="text" name="email" value="<?php echo htmlspecialchars($row['email']); ?>"><br>
                 Celular: <input type="text" name="celular" value="<?php echo htmlspecialchars($row['celular']); ?>"><br>
                 <input type="submit" value="Guardar Cambios">
+                <button type="submit" onclick="window.location.href='../clientes.php'">Cancelar</button>
             </form>
-            <button onclick="window.location.href='../clientes.php'">Cancelar</button>
 
         </div>
     </main>
 
     <footer class="footer">
         <div class="footer-content">
-            <img src="imag/email2.png" alt="">
             <a href="mailto:dan9849r@gmail.com">Envíame un Correo</a>
-            <img src="imag/celular.png" alt="">
+            <img src="imag/email2.png" alt="">
             <a href="tel:+5732056674033">Lámame</a>
-            <img src="imag/whatsapp2.png" alt="">
+            <img src="imag/celular.png" alt="">
             <a href="whatsapp://send?text=">Envíame un Whatsapp</a>
+            <img src="imag/whatsapp2.png" alt="">
         </div>
     </footer>
 </body>

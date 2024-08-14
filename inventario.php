@@ -15,9 +15,6 @@
 <body>
     <main class="main_bienv">
         <div class="contenedor__bienvenida">
-            <div>
-                <img src="imag/BANNER.INVENTAS.png" alt="">
-            </div>
             <div class="contenedor__botones">
                 <button onclick="irAInicio()" class="button btn_bienvenida">Inicio</button>
                 <button onclick="irAInventario()" class="button btn_bienvenida">Inventario</button>
@@ -29,20 +26,29 @@
                 <button onclick="cerrarSesion()" class="button cerrar_sesion">Cerrar Sesión</button>
             </div>
 
+            <br>
+
+            <div>
+                <h1>Inventario</h1> 
+                <br>
+                <form class="formularios_pc" action="../PHP/agregar_item.php"> 
+                    <button type="submit">Agregar
+                        <img src="/imag/boton-agregar.png" width="24" height="24">
+                    </button>
+                </form>
             
-            <div class="derecha">
-                <h1>Inventario</h1>
+                <br>
+
                 <form class="formularios_pc" action="../PHP/buscar_item.php" method="GET">
                     <label>
                         <input type="text" name="buscar" placeholder="Buscar...">
-                        <button type="submit">Buscar
+                        <button type="submit" onclick="window.location.href='../PHP/buscar_item.php'">Buscar
                             <img src="/imag/buscar.png" width="24" height="24">
-                        </button>
-                        <button type="submit" onclick="window.location.href='../PHP/agregar_item.php'">Agregar
-                            <img src="/imag/boton-agregar.png" width="24" height="24">
                         </button>
                     </label>
                 </form>
+                
+                <br>
 
                 <table>
                     <thead>
@@ -74,8 +80,8 @@
                                         <td>" . htmlspecialchars($row['cantidad']) . "</td>
                                         <td>" . htmlspecialchars($row['precio']) . "</td>
                                         <td>
-                                            <button onclick=\"window.location.href='PHP/editar_item.php?id=" . htmlspecialchars($row["id"]) . "'\">Editar</button>
-                                            <button onclick=\"window.location.href='PHP/eliminar_item_be.php?id=" . htmlspecialchars($row["id"]) . "'\">Eliminar</button>
+                                            <button class='btn editar' onclick=\"window.location.href='PHP/editar_item.php?id=" . htmlspecialchars($row["id"]) . "'\">Editar</button>
+                                            <button class='btn eliminar' onclick=\"window.location.href='PHP/eliminar_item_be.php?id=" . htmlspecialchars($row["id"]) . "'\">Eliminar</button>
                                         </td>
                                     </tr>";
                             }
@@ -94,12 +100,12 @@
     
     <footer class="footer">
         <div class="footer-content">
-            <img src="imag/email2.png" alt="">
             <a href="mailto:dan9849r@gmail.com">Envíame un Correo</a>
-            <img src="imag/celular.png" alt="">
+            <img src="imag/email2.png" alt="">
             <a href="tel:+5732056674033">Lámame</a>
-            <img src="imag/whatsapp2.png" alt="">
+            <img src="imag/celular.png" alt="">
             <a href="whatsapp://send?text=">Envíame un Whatsapp</a>
+            <img src="imag/whatsapp2.png" alt="">
         </div>
     </footer>
 </body>

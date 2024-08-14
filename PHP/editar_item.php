@@ -46,9 +46,6 @@ if (isset($_GET['id'])) {
 <body>
     <main>
         <div class="contenedor__bienvenida">
-            <div>
-                <img src="imag/BANNER.INVENTAS.png" alt="">
-            </div>
             <div class="contenedor__botones">
                 <button onclick="irAInicio()" class="button btn_bienvenida">Inicio</button>
                 <button onclick="irAInventario()" class="button btn_bienvenida">Inventario</button>
@@ -63,7 +60,7 @@ if (isset($_GET['id'])) {
             <br>
 
             <h2>Editar Producto</h2>
-            <form action="actualizar_item_be.php" method="POST">
+            <form class="formularios_pc" action="actualizar_item_be.php" method="POST">
                 <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
                 <label for="codigo">Código:</label>
                 <input type="text" id="codigo" name="codigo" value="<?php echo htmlspecialchars($row['codigo']); ?>" required><br>  
@@ -74,20 +71,21 @@ if (isset($_GET['id'])) {
                 <label for="precio">Precio:</label>
                 <input type="text" id="precio" name="precio" value="<?php echo htmlspecialchars($row['precio']); ?>" required><br>
                 <button type="submit">Guardar Cambios</button>
+                <button type="submit" onclick="window.location.href='../inventario.php'">Cancelar</button>
             </form>
-            <button onclick="window.location.href='../inventario.php'">Cancelar</button>
+            
 
         </div>
     </main>
 
     <footer class="footer">
         <div class="footer-content">
-            <img src="imag/email2.png" alt="">
             <a href="mailto:dan9849r@gmail.com">Envíame un Correo</a>
-            <img src="imag/celular.png" alt="">
+            <img src="imag/email2.png" alt="">
             <a href="tel:+5732056674033">Lámame</a>
-            <img src="imag/whatsapp2.png" alt="">
+            <img src="imag/celular.png" alt="">
             <a href="whatsapp://send?text=">Envíame un Whatsapp</a>
+            <img src="imag/whatsapp2.png" alt="">
         </div>
     </footer>
 </body>
