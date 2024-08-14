@@ -158,9 +158,9 @@
             .then(data => {
                 if (data.success) {
                     alert('Venta finalizada con éxito.');
-                    carrito = [];
-                    actualizarTablaCarrito();
-                    window.location.href = '../carrito_ventas.php'; // Redirige tras finalizar la venta
+                    carrito = []; // Vaciar el carrito
+                    actualizarTablaCarrito(); // Actualiza la tabla del carrito
+                    window.location.href = 'carrito_ventas.php'; // Redirige tras finalizar la venta
                 } else {
                     alert('Error al finalizar la venta: ' + data.message);
                 }

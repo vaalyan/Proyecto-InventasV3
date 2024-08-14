@@ -20,7 +20,7 @@ try {
     // Calcular el total de la venta
     $total = 0;
     foreach ($_SESSION['carrito'] as $item) {
-        $total += $item['total'];
+        $total += $item['cantidad'] * $item['precio']; // Asegúrate de que se calcule correctamente
     }
 
     // Registrar la venta en la base de datos
@@ -36,28 +36,42 @@ try {
     }
     $venta_id = $stmt->insert_id;
 
-    // Registrar los detalles de la venta y actualizar el cantidad
+    // Registrar los detalles de la venta y actualizar el stock
     foreach ($_SESSION['carrito'] as $item) {
+        // Verificar si el producto existe en la base de datos
+        $sql = "SELECT id FROM productos WHERE codigo = ?";
+        $stmt = $conexion->prepare($sql);
+        $stmt->bind_param("s", $item['codigo']); // Usa el código del producto
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 0) {
+            throw new Exception('El producto con código ' . $item['codigo'] . ' no existe en la base de datos.');
+        }
+
+        $producto = $result->fetch_assoc();
+        $producto_id = $producto['id']; // Obtén el ID del producto
+
         // Insertar detalle de venta
-        $sql = "INSERT INTO detalle_venta (venta_id, producto_id, cantidad, precio_unitario) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO detalle_ventas (venta_id, producto_id, cantidad, precio_unitario) VALUES (?, ?, ?, ?)";
         $stmt = $conexion->prepare($sql);
         if ($stmt === false) {
             throw new Exception('Error al preparar la consulta para registrar los detalles de la venta.');
         }
-        $stmt->bind_param("iiid", $venta_id, $item['id'], $item['cantidad'], $item['precio']);
+        $stmt->bind_param("iiid", $venta_id, $producto_id, $item['cantidad'], $item['precio']);
         if (!$stmt->execute()) {
-            throw new Exception('Error al ejecutar la consulta de inserción en detalle_venta: ' . $stmt->error);
+            throw new Exception('Error al ejecutar la consulta de inserción en detalle_ventas: ' . $stmt->error);
         }
 
-        // Actualizar el cantidad en la tabla productos
+        // Actualizar el stock en la tabla productos
         $sql = "UPDATE productos SET cantidad = cantidad - ? WHERE id = ?";
         $stmt = $conexion->prepare($sql);
         if ($stmt === false) {
-            throw new Exception('Error al preparar la consulta para actualizar la cantidad del producto.');
+            throw new Exception('Error al preparar la consulta para actualizar el stock del producto.');
         }
-        $stmt->bind_param("ii", $item['cantidad'], $item['id']);
+        $stmt->bind_param("ii", $item['cantidad'], $producto_id);
         if (!$stmt->execute()) {
-            throw new Exception('Error al ejecutar la consulta de actualización de la cantidad: ' . $stmt->error);
+            throw new Exception('Error al ejecutar la consulta de actualización del stock: ' . $stmt->error);
         }
     }
 
@@ -72,10 +86,10 @@ try {
         'success' => true,
         'message' => 'Compra finalizada con éxito.'
     ]);
-
 } catch (Exception $e) {
     // Revertir la transacción en caso de error
     $conexion->rollback();
+    error_log('Error: ' . $e->getMessage()); // Esto registrará el error en el log del servidor
     echo json_encode([
         'success' => false,
         'message' => 'Error al finalizar la compra: ' . $e->getMessage()
